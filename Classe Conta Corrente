@@ -1,0 +1,38 @@
+public class ContaCorrente {
+    private String numero;
+    private String nomeCorrentista;
+    private double saldo;
+
+    public ContaCorrente(String numero, String nomeCorrentista) {
+        this.numero = numero;
+        this.nomeCorrentista = nomeCorrentista;
+        this.saldo = 0;
+    }
+
+    public ContaCorrente(String numero, String nomeCorrentista, double saldoInicial) {
+        this.numero = numero;
+        this.nomeCorrentista = nomeCorrentista;
+        this.saldo = saldoInicial;
+    }
+
+    public void alterarNome(String novoNome) {
+        this.nomeCorrentista = novoNome;
+    }
+
+    public void deposito(double valor) {
+        saldo += valor;
+    }
+
+    public void saque(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
+
+    public void mostrarDados() {
+        System.out.printf("Conta: %s\nCorrentista: %s\nSaldo: R$ %.2f\n",
+                numero, nomeCorrentista, saldo);
+    }
+}
