@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class PrincipalRetangulo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Informe a base do local (m): ");
+        double base = sc.nextDouble();
+
+        System.out.print("Informe a altura do local (m): ");
+        double altura = sc.nextDouble();
+
+        Retangulo local = new Retangulo(base, altura);
+
+        double area = local.calcularArea();
+        double perimetro = local.calcularPerimetro();
+
+        System.out.printf("Área: %.2f m²\n", area);
+        System.out.printf("Perímetro: %.2f m\n", perimetro);
+
+        System.out.println("Quantidade de pisos necessários: " + (int) Math.ceil(area));
+        System.out.println("Quantidade de rodapés necessários: " + (int) Math.ceil(perimetro));
+
+        sc.close();
+    }
+}
